@@ -1,0 +1,24 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = 'wandell.ml.Main'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.nd4j:nd4j-native:0.4-rc3.10'
+    compile 'org.nd4j:nd4j-native:0.4-rc3.10:macosx-x86_64'
+}
+
+jar {
+    baseName = 'wandell-nn'
+    version =  '0.1.0'
+}
+
+task hello {
+    doLast {
+        println 'Hello, World!'
+    }
+}
