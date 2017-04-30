@@ -1,6 +1,5 @@
 package wandell.ml;
 
-
 import org.nd4j.linalg.api.ndarray.INDArray;
 import org.nd4j.linalg.factory.Nd4j;
 
@@ -60,8 +59,11 @@ public class NeuralNetwork {
         Random r = new Random();
 
         while(!this.useMaxEpoc || epoch < this.maxEpoc) {
-            for(int i = 0; i < X.shape()[0]; i++){
-                int learn = r.nextInt(X.shape()[0]);
+            INDArray s = Nd4j.arange(X.shape()[0]);
+            Nd4j.shuffle(s, 0);
+
+            for(int i = 0; i < s.shape()[1]; i++){
+                int learn = s.getInt(i);
                 INDArray[] djdw1_djdw2 = this.costFunctionPrime(X.getRow(learn), y.getRow(learn));
                 INDArray[] plainParams = this.getPlainParams();
 

@@ -37,7 +37,7 @@ public class Main {
         n.setMaxCost(0.001f);
         n.setEpochReport(1000);
         n.setVerbose(true);
-        n.setLearningRate(0.1f);
+        n.setLearningRate(0.2f);
         n.trainSgd(X, y);
 
         // Guess 1 - should be close to 75
